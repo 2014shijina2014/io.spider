@@ -5,8 +5,8 @@ package io.spider.sc.center.pojo;
 
 import java.util.List;
 
-import com.ld.net.spider.sc.pojo.ClusterReq;
-import com.ld.net.spider.sc.pojo.WorkNodeReq;
+import io.spider.sc.pojo.ClusterReq;
+import io.spider.sc.pojo.WorkNodeReq;
 
 public class ClusterAddManageReq {
 	private List<WorkNodeReq> targetNodes;

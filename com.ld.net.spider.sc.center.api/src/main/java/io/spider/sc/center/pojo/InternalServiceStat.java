@@ -3,7 +3,7 @@
  */
 package io.spider.sc.center.pojo;
 
-import com.ld.net.spider.stat.ServiceStat;
+import io.spider.stat.ServiceStat;
 
 public class InternalServiceStat extends ServiceStat {
 	private String clientIp;

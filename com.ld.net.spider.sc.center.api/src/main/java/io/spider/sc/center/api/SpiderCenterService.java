@@ -3,13 +3,13 @@
  */
 package io.spider.sc.center.api;
 
-import com.ld.net.spider.annotation.Service;
-import com.ld.net.spider.annotation.ServiceModule;
-import com.ld.net.spider.pojo.SpiderBaseResp;
-import com.ld.net.spider.sc.pojo.ReliableStatusReq;
-import com.ld.net.spider.sc.pojo.RegisterReq;
-import com.ld.net.spider.sc.pojo.SlowRequestReq;
-import com.ld.net.spider.sc.pojo.StatReq;
+import io.spider.annotation.Service;
+import io.spider.annotation.ServiceModule;
+import io.spider.pojo.SpiderBaseResp;
+import io.spider.sc.pojo.ReliableStatusReq;
+import io.spider.sc.pojo.RegisterReq;
+import io.spider.sc.pojo.SlowRequestReq;
+import io.spider.sc.pojo.StatReq;
 @ServiceModule
 public interface SpiderCenterService {
 	

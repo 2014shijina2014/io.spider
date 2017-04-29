@@ -5,8 +5,8 @@ package io.spider.sc.center.pojo;
 
 import java.util.List;
 
-import com.ld.net.spider.sc.pojo.ShellReq;
-import com.ld.net.spider.sc.pojo.WorkNodeReq;
+import io.spider.sc.pojo.ShellReq;
+import io.spider.sc.pojo.WorkNodeReq;
 
 /**
  * @author zhjh256@163.com

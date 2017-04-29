@@ -17,10 +17,10 @@ import java.util.Map;
 
 import com.ld.net.remoting.LDRequest;
 import com.ld.net.remoting.LDService;
-import com.ld.net.spider.pojo.SpiderBaseReq;
-import com.ld.net.spider.pojo.ParallelBaseResp;
-import com.ld.net.spider.sc.pojo.MyInfo;
-import com.ld.net.spider.sc.pojo.NodeInfo;
+import io.spider.pojo.SpiderBaseReq;
+import io.spider.pojo.ParallelBaseResp;
+import io.spider.sc.pojo.MyInfo;
+import io.spider.sc.pojo.NodeInfo;
 
 @LDService
 public interface NodeManageService {

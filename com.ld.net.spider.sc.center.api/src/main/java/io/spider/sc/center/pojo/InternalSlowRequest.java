@@ -3,7 +3,7 @@
  */
 package io.spider.sc.center.pojo;
 
-import com.ld.net.spider.meta.SpiderPacketHead;
+import io.spider.meta.SpiderPacketHead;
 
 public class InternalSlowRequest extends SpiderPacketHead {
 	private String remoteAddress;

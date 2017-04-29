@@ -5,7 +5,7 @@ package io.spider.sc.center.pojo;
 
 import java.util.List;
 
-import com.ld.net.spider.sc.pojo.WorkNodeReq;
+import io.spider.sc.pojo.WorkNodeReq;
 
 public class ClusterRemoveManageReq {
 	private List<WorkNodeReq> targetNodes;
