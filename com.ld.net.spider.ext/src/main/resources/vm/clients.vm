@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>client connections</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+<body style="margin:10px">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>客户端地址</th>
+                <th>是否已连接</th>
+            </tr>
+        </thead>
+        <tbody>
+        #if ($!{clients.size()} == 0)
+        	<tr>
+	            <td colspan="2">no record.</td>
+	        </tr>
+        #else
+	        #foreach($workNode in $clients)
+	        <tr>
+	            <td>$workNode.workNodeName</td>
+	            <td>$workNode.connected</td>
+	        </tr>
+	        #end
+        #end
+        </tbody>
+    </table>
+</body>
+</html>

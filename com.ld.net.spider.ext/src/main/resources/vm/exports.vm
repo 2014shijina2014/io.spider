@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>export services</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+<body style="margin:10px">
+    <table class="table table-bordered">
+    	<thead>
+            <tr>
+                <th>serviceId</th>
+                <th>subSystemId</th>
+                <th>method</th>
+                <th>clusterName</th>
+            </tr>
+        </thead>
+        <tbody>
+        #if ($!{services.size()} == 0)
+        	<tr>
+	            <td colspan="4">no record.</td>
+	        </tr>
+        #else
+	        #foreach($service in $services)
+	        <tr>
+	            <td>$service.serviceId</td>
+	            <td>$service.subSystemId</td>
+	            <td>$service.method</td>
+	            <td>$service.clusterName</td>
+	        </tr>
+	        #end
+        #end
+        </tbody>
+    </table>
+</body>
+</html>

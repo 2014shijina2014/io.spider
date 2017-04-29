@@ -1,0 +1,46 @@
+Changes in version 2.0.0.RELEASE (2017-04-13)
+* 核心命名空间从com.ld.net.spider调整为io.spider
+
+Changes in version 1.0.10.RELEASE (2017-04-06)
+----------------------------------------
+* !报文头结构调整, 客户端/服务端需要配对升级, 报文头不兼容之前的版本
+* 客户端支持发送ldpack报文体请求到服务端
+* ServiceDefinition 增加获取参数顺序的帮助器方法
+* noLoggingList调整为不打印日志
+* cluster节点的connectionSize属性移动到workNode下并生效
+* 支持log4mongodb集中式日志存储,请求、应答日志配对完善,loggerName调整为spider.${clusterName}
+* 支持根据his/batch属性路由
+* spring framework依赖调整为4.3.7, 解决安全漏洞CVE-2014-3625 Directory Traversal in Spring Framework, 确定已经解决
+* 1.0.9修复的“创建socketchannel时, 如果不成功, SpiderClientBusiHandler从shutdown()改为shutdownGracefully(), 避免提示警告”在目标服务器重启或者shutdown后,会导致到该服务器的请求hang, 修复为shutdownGracefully(0, 100, TimeUnit.MILLISECONDS).await(150)
+  同时在SocketHelper中加上eventLoop.isShutdowning()判断
+* 去掉反向注册相关参数和逻辑, 后续通过服务中心支持
+* 去掉LdPack兼容相关参数和逻辑
+
+Changes in version 1.0.9.RELEASE (2017-03-23)
+----------------------------------------
+* 支持逻辑前移、非逻辑前移运行时同时兼容
+* 支持自定义负载均衡模式
+* SpiderShutdownCleaner和SpiderMonitorServiceImpl、ServiceStatHelper根据最新线程池实现更新统计功能
+* 日志信息完善
+* web-admin调用后台服务从直接调用更改为全部通过osm-route调用
+* 支持SSL通信
+* 修复~作为业务错误号和错误信息分隔符时与业务冲突的问题,改为&~
+* 引入redis依赖, 下一版本完善token存储支持至redis, 支持osm-route重启后, 客户端不需要重新登录
+* dbf行情解析支持
+* jdbc连接获取不到异常包装
+* 创建socketchannel时, 如果不成功, SpiderClientBusiHandler从shutdown()改为shutdownGracefully(), 避免提示警告
+
+Changes in version 1.0.8.RELEASE (2017-03-08)
+----------------------------------------
+* 抛出RemotingException业务异常时, 不打印堆栈
+* 当spider.xml路由指向的节点不存在时, 不抛出空指针异常, 而是封装为友好异常提示
+* SpiderServerBusiHandler中throw new SpiderException("999", SpiderErrorNoConstant.getErrorInfo("999"), getClass().getCanonicalName() + "发生了未预知的致命异常！");修改为logger.error并返回默认错误, 不导致TCP连接断开影响全局
+* spring framework依赖调整为4.2.9, 解决安全漏洞CVE-2014-3625 Directory Traversal in Spring Framework
+* 修复在supportPlainParams="true"时, 不支持运行时同时存在LDPack和对象作为参数的方法的缺陷
+* 修复RefectionUtils.getField()属性在当前类和父类之外找不到的缺陷, 支持BaseReq->BasePageReq->业务Req的适用场景
+
+Changes in version 1.0.8.RELEASE (2017-02-23)
+----------------------------------------
+* 运行时同时支持对象传递和@LDParam注解的非复合类型参数平铺
+* ld-remoting不再需要依赖ld-pack, ld-commons
+* 自定义业务逻辑执行器代替netty封装的线程池, 优点是一个channel进来的task list可以被多个thread执行, 否则一个channel进来的task只能某个绑定死的thread执行. 各有优点, 我们还是倾向于吞吐量优先

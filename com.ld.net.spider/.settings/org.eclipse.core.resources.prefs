@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/java/io/spider/channel/SocketServerHelper.java=UTF-8
+encoding//src/main/java/io/spider/client=UTF-8
+encoding//src/main/java/io/spider/client/SpiderClientDispatcher.java=UTF-8
+encoding//src/main/java/io/spider/pojo=UTF-8
+encoding//src/main/java/io/spider/server/SpiderServerBusiHandler.java=UTF-8
+encoding//src/main/java/io/spider/server/SpiderServerDispatcher.java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8

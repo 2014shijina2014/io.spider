@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>routes</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+<body style="margin:10px">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a class="btn btn-default" href="./route/add.html" type="button">增加</a>
+        </div>
+    </div>
+    <table class="table table-bordered">
+    	<thead>
+            <tr>
+                <th></th>
+                <th>serviceId</th>
+                <th>systemId</th>
+                <th>appVersion</th>
+                <th>subSystemId</th>
+                <th>companyId</th>
+                <th>clusterName</th>
+            </tr>
+        </thead>
+        <tbody>
+        #if ($!{routes.size()} == 0)
+        	<tr>
+	            <td colspan="6">no record.</td>
+	        </tr>
+        #else
+	        #foreach($route in $routes)
+	        <tr>
+	            <td><a class="btn btn-default spider-route" type="button" href="#">删除</a></td>
+	            <td>$route.serviceId</td>
+	            <td>$route.systemId</td>
+	            <td>$route.appVersion</td>
+	            <td>$route.subSystemId</td>
+	            <td>$route.companyId</td>
+	            <td class="clusterName">$route.clusterName</td>
+	        </tr>
+	        #end
+	    #end
+        </tbody>
+    </table>
+    <script type="text/javascript">
+    $(function() {
+    	$("a.spider-route").click(function() {
+    		$.post("./route/delete.html",{clusterName:$(this).parent('tr').find(".clusterName").text()},function (data) {
+    			$(document).find("html").html(data);
+    		});
+    	});
+    });
+    </script>
+</body>
+</html>

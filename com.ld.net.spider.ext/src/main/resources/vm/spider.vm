@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>spider standalone management center</title>
+	    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+	    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	    <style type="text/css">
+	    	h3 {
+	    		padding-left:30px;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<h2>#if($!{isServiceCenter}) 服务中心 #else #if($!{isServer}) 服务器 #else 客户端 #end #if($!{isCloud}) (云管理模式) #else (独立管理模式) #end #end</h2>
+		<h3><a href="./node-tree.html">spider拓扑</a></h3>
+		<h3><a href="./myinfo.html">本节点配置信息</a></h3>
+		<h3><a href="./clients.html">客户端连接</a></h3>
+		<h3><a href="./clusters.html">下游服务器列表</a></h3>
+		<h3><a href="./dyn-route-caches.html">动态路由缓存</a></h3>
+		<h3><a href="./exports.html">自动发布服务</a></h3>
+		<h3><a href="./metrics.html">服务性能指标</a></h3>
+		<h3><a href="./proxies.html">自动代理服务</a></h3>
+		<h3><a href="./queues.html">可信模式待处理请求队列</a></h3>
+		<h3><a href="./routes.html">路由表</a></h3>
+		<h3><a href="./pending-requests.html">正在执行请求列表</a></h3>
+		<h3><a href="./thread-info.html">服务器线程信息</a></h3>
+		<h3><a href="./reset-metrics.html">清空性能指标</a></h3>
+		<h3><a href="./generate-license-key.html">生成License Key</a></h3>
+	</body>
+</html>

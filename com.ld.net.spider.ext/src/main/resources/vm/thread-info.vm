@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>busi thread info</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+<body style="margin:10px">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>pending-TaskCount</th>
+                <th>runnable-ThreadCount</th>
+                <th>blocked-ThreadCount</th>
+                <th>waiting-ThreadCount</th>
+                <th>timedwait-ThreadCount</th>
+                <th>new-ThreadCount</th>
+                <th>maxConcurrent-ThreadCount</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr>
+	            <td>$threadInfo.pendingTaskCount</td>
+	            <td>$threadInfo.runnableThreadCount</td>
+	            <td>$threadInfo.blockedThreadCount</td>
+	            <td>$threadInfo.waitingThreadCount</td>
+	            <td>$threadInfo.timedWaitThreadCount</td>
+	            <td>$threadInfo.newThreadCount</td>
+	            <td>$threadInfo.maxConcurrent</td>
+	        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

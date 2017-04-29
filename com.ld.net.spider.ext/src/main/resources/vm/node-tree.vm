@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>节点树(当前最多支持6级)</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/jquery.orgchart.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="/js/jquery.orgchart.js" language="javascript" type="text/javascript"></script>
+<style type="text/css">
+div.orgChart {
+    border: 0px;
+    background: initial;
+}
+div.orgChart div.node {
+    width: 160px;
+    height: 40px;
+    padding: 3px;
+}
+div.orgChart div.node.disconnected {
+	background-color: orangered;
+}
+</style>
+</head>
+<body style="margin:10px">
+<h1>本页面要求在/js/目录下包含jquery.orgchart.js, /css/目录下包含jquery.orgchart.css, 否则节点层级树将无法显示</h1>
+    #if( $errorNo == "-1")
+    <h3>$errorInfo<a href="./spider.html">点此</a>返回</h3>
+	#else
+<div id="chart">
+  <ul id="spiderNodeTree" class="hide">
+    <li>
+      $!{nodeTree.clusterName}<br>$!{nodeTree.ip}#if($!{nodeTree.isServer}):$!{nodeTree.port} #end
+      #if($!{nodeTree.children.size()} != 0)
+      <ul>
+        #foreach($level1 in $nodeTree.children)
+        <li #if($!level1.errorNo == "002") class="disconnected" #end>
+          $!{level1.clusterName}<br>$!{level1.ip}:$!{level1.port}
+          #if($!{level1.children.size()} != 0)
+          <ul>
+            #foreach($level2 in $level1.children)
+            <li #if($!level1.errorNo == "002") class="disconnected" #end>
+              $!{level2.clusterName}<br>$!{level2.ip}:$!{level2.port}
+              #if($!{level2.children.size()} != 0)
+              <ul>
+                #foreach($level3 in $level2.children)
+                <li #if($!level1.errorNo == "002") class="disconnected" #end>
+                  $!{level3.clusterName}<br>$!{level3.ip}:$!{level3.port}
+                  #if($!{level3.children.size()} != 0)
+                  <ul>
+                    #foreach($level4 in $level3.children)
+                    <li #if($!level1.errorNo == "002") class="disconnected" #end>
+                      $!{level4.clusterName}<br>$!{level4.ip}:$!{level4.port}
+                      #if($!{level4.children.size()} != 0)
+                      <ul>
+                        #foreach($level5 in $level4.children)
+                        <li #if($!level1.errorNo == "002") class="disconnected" #end>
+                          $!{level5.clusterName}<br>$!{level5.ip}:$!{level5.port}
+                          #if($!{level5.children.size()} != 0)<br>暂不支持显示超过6层级联监控 #end
+                        </li>
+                        #end
+                      <ul>
+                      #end
+                    </li>
+                    #end
+                  </ul>
+                  #end
+                </li>
+                #end
+              </ul>
+              #end
+            </li>
+            #end
+          </ul>
+          #end
+        </li>
+        #end
+      </ul>
+      #end
+    </li>
+  </ul>
+</div>
+	#end
+<script type="text/javascript">
+  $("#spiderNodeTree").orgChart({
+    container : $("#chart")
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>client connections</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+<body style="margin:10px">
+    #if($!errorNo == "-1")
+    <form class="well" action="/spider/generate-license-key.html" method="POST">
+        <label class="col-sm-1 control-label" for="mac">目标服务器MAC</label>
+        <div class="col-sm-2">
+            <input class="form-control" id="mac" name="mac" type="text" placeholder="不可为空" required/>
+        </div>
+        <label class="col-sm-1 control-label" for="expireDate">过期日期</label>
+        <div class="col-sm-2">
+            <input class="form-control" id="expireDate" name="expireDate" type="text" placeholder="YYYYMMDD" required/>
+        </div>
+		<button type="submit" class="btn">生成License Key</button>
+	</form>
+	#else
+	<h3>$!errorInfo</h3>
+	<h3>$!licenseKey</h3>
+	<h3><a href="./generate-license-key.html">点此</a>返回</h3>
+	#end
+</body>
+</html>
